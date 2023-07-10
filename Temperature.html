@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <title>Temperature Convertor</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        form {
+            font-size: 24px;
+        }
+
+        .drop {
+            font-size: 24px;
+            margin-right: 10%;
+        }
+
+        .input {
+            font-size: 24px;
+
+        }
+
+        .btn {
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Temperature Convertor</h1>
+    </center><br><br>
+    <center>
+
+        <form action="tempcon.html">
+            <label class="input" for="temp">Degrees:</label>
+            <input id="degree" class="input" type="text">
+            <br><br>
+            <label for="temp">Type:</label>
+            <select id="unit" class="drop" name="temp" id="temp">
+                <option class="drop" value="Fahrenheit">Fahrenheit</option>
+                <option class="drop" value="Celsius">Celsius</option>
+                <option class="drop" value="Kelvin">Kelvin</option>
+            </select>
+            <br><br>
+            <label class="input" for="temp">Result:</label>
+            <input id="result" class="input" type="text">
+            <br><br>
+            <input class="btn" onclick="tempconvert()" value="Convert">
+        </form>
+    </center>
+</body>
+
+<script>
+    function tempconvert() {
+
+        let degree = document.getElementById('degree');
+        let unit = document.getElementById('unit');
+        let result = document.getElementById('result');
+
+        if (unit.value == "Fahrenheit") {
+            let f = (parseFloat(degree.value) * 9) / 5 + 32;
+            result.value = parseFloat(f.toFixed(2));
+
+        }
+        else if (unit.value == "Celsius") {
+            result.value = degree.value;
+
+        }
+        else if (unit.value == "Kelvin") {
+            let k = (parseFloat(degree.value) + 273.15);
+            result.value = parseFloat(k.toFixed(2));
+        }
+    }
+</script>
+
+</html>
